@@ -16,7 +16,7 @@ Try it in the browser: [https://ldogejs.io/browser/](https://ldogejs.io/browser/
 ```
 $ git clone git://github.com/ldogejs-org/ldogejs.git
 $ cd ldogejs
-$ npm rebuild
+$ npm clean-install
 $ ./bin/ldogejs
 ```
 
