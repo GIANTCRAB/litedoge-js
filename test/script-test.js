@@ -36,9 +36,9 @@ function parseScriptTest(data) {
 
   comments += ` (${expected})`;
 
-  let value = 0;
+  let value = 0n;
   if (witArr.length > 0)
-    value = fromFloat(witArr.pop(), 8);
+    value = BigInt(fromFloat(witArr.pop(), 8));
 
   const input = Script.fromString(inpHex);
   const output = Script.fromString(outHex);
@@ -281,6 +281,7 @@ describe('Script', function() {
         // Funding transaction.
         const prev = new TX({
           version: 1,
+          time: 0,
           inputs: [{
             prevout: {
               hash: consensus.ZERO_HASH,
@@ -302,6 +303,7 @@ describe('Script', function() {
         // Spending transaction.
         const tx = new TX({
           version: 1,
+          time: 0,
           inputs: [{
             prevout: {
               hash: prev.hash(),
